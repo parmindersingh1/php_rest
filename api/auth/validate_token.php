@@ -17,8 +17,12 @@ include_once '../../config/core.php';
 $data = json_decode(file_get_contents("php://input"));
 
 // get jwt
-$jwt = isset($data->jwt) ? $data->jwt : "";
+//$jwt = isset($data->jwt) ? $data->jwt : "";
+$authHeader = $_SERVER['HTTP_AUTHORIZATION'];
 
+$arr = explode(" ", $authHeader);
+
+$jwt = $arr[1];
 // if jwt is not empty
 if ($jwt) {
 

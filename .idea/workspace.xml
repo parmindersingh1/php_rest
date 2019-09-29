@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d42f0c-718c-4baa-8962-d49864348608" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/auth/protected.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php_rest_api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php_rest_api.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/category/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/category/create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/category/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/category/delete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/category/read.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/category/read.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/category/read_single.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/category/read_single.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/category/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/category/update.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/post/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/post/create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/post/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/post/delete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/post/read.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/post/read.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/post/read_single.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/post/read_single.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/post/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/post/update.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/data/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/config/data/database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/auth/update_user.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/auth/update_user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/auth/validate_token.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/auth/validate_token.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,13 +16,20 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
     </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
   </component>
   <component name="ProjectId" id="1RUfw01pPxWxVB0GNmYLjxhdSjP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -68,7 +68,8 @@
       <option name="presentableId" value="Default" />
       <updated>1569726829482</updated>
       <workItem from="1569726832076" duration="3307000" />
-      <workItem from="1569733286219" duration="5535000" />
+      <workItem from="1569733286219" duration="5863000" />
+      <workItem from="1569748897712" duration="972000" />
     </task>
     <servers />
   </component>
