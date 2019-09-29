@@ -28,9 +28,11 @@ if ($num > 0) {
         // Push to "data"
         array_push($cat_arr['data'], $cat_item);
     }
+    http_response_code(200);
     // Turn to JSON & output
     echo json_encode($cat_arr);
 } else {
+    http_response_code(400);
     // No Categories
     echo json_encode(
         array('message' => 'No Categories Found')

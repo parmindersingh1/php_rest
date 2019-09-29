@@ -21,10 +21,12 @@ $post->author = $data->author;
 $post->category_id = $data->category_id;
 // Update post
 if ($post->update()) {
+    http_response_code(200);
     echo json_encode(
         array('message' => 'Post Updated')
     );
 } else {
+    http_response_code(400);
     echo json_encode(
         array('message' => 'Post Not Updated')
     );

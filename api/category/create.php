@@ -16,10 +16,12 @@ $data = json_decode(file_get_contents("php://input"));
 $category->name = $data->name;
 // Create Category
 if ($category->create()) {
+    http_response_code(200);
     echo json_encode(
         array('message' => 'Category Created')
     );
 } else {
+    http_response_code(400);
     echo json_encode(
         array('message' => 'Category Not Created')
     );

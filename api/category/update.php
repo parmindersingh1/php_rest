@@ -18,10 +18,12 @@ $category->id = $data->id;
 $category->name = $data->name;
 // Update post
 if ($category->update()) {
+    http_response_code(200);
     echo json_encode(
         array('message' => 'Category Updated')
     );
 } else {
+    http_response_code(400);
     echo json_encode(
         array('message' => 'Category not updated')
     );

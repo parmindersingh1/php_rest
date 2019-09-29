@@ -18,5 +18,6 @@ $category_arr = array(
     'id' => $category->id,
     'name' => $category->name
 );
+http_response_code(200);
 // Make JSON
 print_r(json_encode($category_arr));
