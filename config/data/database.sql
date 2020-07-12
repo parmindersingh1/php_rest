@@ -1,6 +1,6 @@
-CREATE DATABASE myblog;
+CREATE DATABASE IF NOT EXISTS php_rest;
 
-use myblog;
+use php_rest;
 
 CREATE TABLE `categories`
 (

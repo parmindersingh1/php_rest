@@ -1,17 +1,10 @@
 <?php
 require "../../vendor/autoload.php";
 
-use \Firebase\JWT\JWT;
-
-// required headers
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Max-Age: 3600");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-
+include_once '../../config/cors.php';
 include_once '../../config/Database.php';
 include_once '../../models/User.php';
+include_once '../../models/Auth.php';
 include_once '../../config/core.php';
 
 $database = new Database();
@@ -31,43 +24,29 @@ $jwt = $arr[1];
 if ($jwt) {
 
     // if decode succeed, show user details
-    try {
-
-        // decode jwt
-        $decoded = JWT::decode($jwt, $key, array('HS256'));
-
+    // decode jwt
+    $decoded = Auth::authenticate($jwt);
+    if ($decoded["status"]) {
         // set user property values
         $user->first_name = $data->first_name;
         $user->last_name = $data->last_name;
         $user->email = $data->email;
         $user->password = $data->password;
-        $user->id = $decoded->data->id;
+        $user->id = $decoded["user"]["id"];
+
 
         // update the user record
         if ($user->update()) {
             // we need to re-generate jwt because user details might be different
-            $token = array(
-                "iss" => $iss,
-                "aud" => $aud,
-                "iat" => $iat,
-                "nbf" => $nbf,
-                "data" => array(
-                    "id" => $user->id,
-                    "firstname" => $user->firstname,
-                    "lastname" => $user->lastname,
-                    "email" => $user->email
-                )
-            );
-            $jwt = JWT::encode($token, $key);
-
+            $res = Auth::generateToken($user);
             // set response code
             http_response_code(200);
 
             // response in json format
             echo json_encode(
                 array(
-                    "message" => "User was updated.",
-                    "jwt" => $jwt
+                    "message" => "User updated successfully.",
+                    "jwt" =>  $res["token"]
                 )
             );
         } // message if unable to update user
@@ -78,16 +57,15 @@ if ($jwt) {
             // show error message
             echo json_encode(array("message" => "Unable to update user."));
         }
-    }// if decode fails, it means jwt is invalid
-    catch (Exception $e) {
-
+    } // if decode fails, it means jwt is invalid
+    else {
         // set response code
         http_response_code(401);
 
         // show error message
         echo json_encode(array(
             "message" => "Access denied.",
-            "error" => $e->getMessage()
+            "error" => $decoded["status"]["error"]
         ));
     }
 } // show error message if jwt is empty
